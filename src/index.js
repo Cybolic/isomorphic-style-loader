@@ -33,7 +33,7 @@ module.exports.pitch = function pitch(remainingRequest) {
     // Hot Module Replacement
     // https://webpack.github.io/docs/hot-module-replacement
     // Only activated in browser context
-    if (module.hot && typeof window !== 'undefined' && window.document && (typeof process === 'undefined' || !process.browser)) {
+    if (module.hot && typeof window !== 'undefined' && window.document && typeof document !== 'undefined') {
       var removeCss = function() {};
       module.hot.accept(${stringifyRequest(this, `!!${remainingRequest}`)}, function() {
         content = require(${stringifyRequest(this, `!!${remainingRequest}`)});
